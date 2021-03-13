@@ -19,9 +19,6 @@ import java.util.List;
 
 /**
  * 文章的controller
- *
- * @author 言曌
- * @date 2017/8/24
  */
 @Controller
 public class ArticleController {

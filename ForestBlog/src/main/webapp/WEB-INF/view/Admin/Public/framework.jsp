@@ -29,13 +29,13 @@
         </div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="/" target="_blank">前台</a></li>
+            <li class="layui-nav-item"><a href="/" >前台</a></li>
             <li class="layui-nav-item">
                 <a href="javascript:;">新建</a>
                 <dl class="layui-nav-child">
                     <dd><a href="/admin/article/insert">文章</a></dd>
                     <dd><a href="/admin/page/insert">页面</a></dd>
-                    <dd><a href="/admin/category/insert">分类</a></dd>
+                    <dd><a href="/admin/category">分类</a></dd>
                     <dd><a href="/admin/notice/insert">公告</a></dd>
                     <dd><a href="/admin/link/insert">链接</a></dd>
                 </dl>
@@ -52,7 +52,7 @@
                 </dl>
             </li>
             <li class="layui-nav-item">
-                <a href="/admin/logout">退了</a>
+                <a href="/admin/logout">退出</a>
             </li>
         </ul>
     </div>
@@ -60,7 +60,7 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+            <ul class="layui-nav layui-nav-tree">
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">文章</a>
                     <dl class="layui-nav-child">
@@ -70,6 +70,16 @@
                         <dd><a href="/admin/tag">全部标签</a></dd>
                     </dl>
                 </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/admin/association">社团管理</a></dd>
+                        <dd><a href="/admin/activity">活动管理</a></dd>
+                        <dd><a href="/admin/page">财务管理</a></dd>
+
+                    </dl>
+                </li>
+
                 <li class="layui-nav-item">
                     <a href="javascript:;">页面</a>
                     <dl class="layui-nav-child">
@@ -120,7 +130,6 @@
 
     <div class="layui-footer">
         <!-- 底部固定区域 -->
-        © <a href="http://blog.liuyanzhao.com">言曌博客</a> 2017  欢迎加入开发者交流群 590480292，博主免费回答大家日常问题。同时博主代做毕设，解决开发问题，详情参看 <a href="https://liuyanzhao.com/bulletin/my-service/" target="_blank">有偿服务</a>
     </div>
 </div>
 

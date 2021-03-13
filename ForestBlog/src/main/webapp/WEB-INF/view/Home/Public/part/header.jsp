@@ -19,7 +19,7 @@
                         <a href="/admin">进入后台</a>
                     </c:otherwise>
                 </c:choose>
-                <a href="https://liuyanzhao.com/bulletin/my-service" target="_blank" style="color:red;">毕设代做/有偿服务</a>
+
             </div>
             <div class="menu-topmenu-container">
                 <ul id="menu-topmenu" class="top-menu">
@@ -79,7 +79,7 @@
                                             <c:forEach items="${allCategoryList}" var="cate">
                                                 <c:if test="${cate.categoryPid==category.categoryId}">
                                                     <li>
-                                                        <a href="/category/${cate.categoryId}" target="_blank">${cate.categoryName}</a>
+                                                        <a href="/category/${cate.categoryId}" >${cate.categoryName}</a>
                                                     </li>
                                                 </c:if>
                                             </c:forEach>

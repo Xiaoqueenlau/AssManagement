@@ -17,7 +17,7 @@
         <result column="comment_role" property="commentRole" jdbcType="INTEGER"/>
     </resultMap>
 
-    <sql id="tb">comment</sql>
+<!--    <sql id="tb">comment</sql>-->
 
     <sql id="Base_Column_List">
     comment_id, comment_pid, comment_pname, comment_article_id, comment_author_name,
@@ -29,19 +29,19 @@
         select
         <include refid="Base_Column_List"/>
         from
-        <include refid="tb"/>
+        comment
         where comment_id = #{commentId,jdbcType=INTEGER}
     </select>
 
     <delete id="deleteById" parameterType="java.lang.Integer">
         delete from
-        <include refid="tb"/>
+            comment
         where comment_id = #{commentId,jdbcType=INTEGER}
     </delete>
 
     <insert id="insert" parameterType="com.liuyanzhao.ssm.blog.entity.Comment" useGeneratedKeys="true" keyProperty="commentId">
         insert into
-        <include refid="tb"/>
+            comment
         (comment_pid, comment_pname, comment_article_id,
         comment_author_name, comment_author_email,
         comment_author_url, comment_author_avatar, comment_content, comment_agent,
@@ -55,7 +55,7 @@
 
     <update id="update" parameterType="com.liuyanzhao.ssm.blog.entity.Comment">
         update
-        <include refid="tb"/>
+        comment
         <set>
             <if test="commentPid != null">comment_pid = #{commentPid,jdbcType=INTEGER},</if>
             <if test="commentPname != null">comment_pname = #{commentPname,jdbcType=VARCHAR},</if>
@@ -78,7 +78,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        comment
         WHERE
         comment_article_id = #{id}
         ORDER BY comment_id ASC
@@ -90,7 +90,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        comment
         ORDER BY comment_id DESC
     </select>
 
@@ -98,7 +98,7 @@
     <!--统计评论数-->
     <select id="countComment" parameterType="Integer" resultType="Integer">
         SELECT count(*) FROM
-        <include refid="tb"/>
+            comment
     </select>
 
     <!--获得最近评论，访客的评论-->
@@ -106,7 +106,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        comment
         WHERE comment_role = 0
         ORDER BY comment_id DESC
         LIMIT #{limit}
@@ -116,7 +116,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        comment
         WHERE
         comment_pid=#{id}
     </select>

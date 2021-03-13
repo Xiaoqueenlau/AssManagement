@@ -3,9 +3,7 @@ package com.liuyanzhao.ssm.blog.mapper;
 import com.liuyanzhao.ssm.blog.entity.Options;
 import org.apache.ibatis.annotations.Mapper;
 
-/**
- * @author liuyanzhao
- */
+
 @Mapper
 public interface OptionsMapper {
 

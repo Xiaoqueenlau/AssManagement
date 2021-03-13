@@ -4,9 +4,7 @@ import com.liuyanzhao.ssm.blog.entity.Menu;
 
 import java.util.List;
 
- /**
-  * @author liuyanzhao
-  */
+
  public interface MenuService {
      /**
       * 获得菜单列表

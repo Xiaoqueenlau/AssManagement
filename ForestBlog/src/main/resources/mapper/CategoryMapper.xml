@@ -10,7 +10,7 @@
         <result column="category_icon" property="categoryIcon" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <sql id="tb">category</sql>
+<!--    <sql id="tb">category</sql>-->
 
     <sql id="Base_Column_List">
     category_id, category_pid, category_name, category_description, category_order, category_icon
@@ -19,7 +19,7 @@
 
     <insert id="insert" parameterType="com.liuyanzhao.ssm.blog.entity.Category" useGeneratedKeys="true" keyProperty="categoryId">
         insert into
-        <include refid="tb"/>
+            category
         (category_pid, category_name,category_description, category_order, category_icon)
         values (#{categoryPid,jdbcType=INTEGER}, #{categoryName,jdbcType=VARCHAR},
         #{categoryDescription,jdbcType=VARCHAR}, #{categoryOrder,jdbcType=INTEGER}, #{categoryIcon,jdbcType=VARCHAR})
@@ -28,7 +28,7 @@
 
     <update id="update" parameterType="com.liuyanzhao.ssm.blog.entity.Category">
         update
-        <include refid="tb"/>
+        category
         <set>
             <if test="categoryPid != null">category_pid = #{categoryPid,jdbcType=INTEGER},</if>
             <if test="categoryName != null">category_name = #{categoryName,jdbcType=VARCHAR},</if>
@@ -43,7 +43,7 @@
     <!--获得分类总数-->
     <select id="countCategory" resultType="Integer">
         SELECT COUNT(*) FROM
-        <include refid="tb"/>
+            category
     </select>
 
 
@@ -51,7 +51,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        category
         order by category_order desc,category_id asc
     </select>
 
@@ -59,7 +59,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        category
         WHERE
         category.category_id=#{value}
     </select>
@@ -68,7 +68,7 @@
     <!--删除分类-->
     <delete id="deleteCategory" parameterType="Integer">
         DELETE FROM
-        <include refid="tb"/>
+            category
         WHERE category_id=#{value}
     </delete>
 
@@ -88,7 +88,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        category
         WHERE category_name=#{value}
         limit 1
     </select>

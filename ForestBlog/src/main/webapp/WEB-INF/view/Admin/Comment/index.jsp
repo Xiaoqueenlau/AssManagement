@@ -54,7 +54,7 @@
                         <br>
                             ${c.commentAuthorUrl} <br>
                             ${c.commentAuthorEmail} <br>
-                            ${c.commentIp}
+<%--                            ${c.commentIp}--%>
                     </td>
                     <td class="dashboard-comment-wrap">
                         <c:if test="${c.commentPid!=0}">

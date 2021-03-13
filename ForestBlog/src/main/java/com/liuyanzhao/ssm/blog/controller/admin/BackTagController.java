@@ -14,9 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 
-/**
- * @author liuyanzhao
- */
+
 @Controller
 @RequestMapping("/admin/tag")
 public class BackTagController {

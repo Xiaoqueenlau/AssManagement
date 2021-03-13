@@ -19,10 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
-/**
- * @author 言曌
- * @date 2017/9/10
- */
+
 
 @Controller
 @RestController

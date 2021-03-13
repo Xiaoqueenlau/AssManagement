@@ -17,22 +17,22 @@
     page_view_count, page_comment_count, page_status
   </sql>
 
-  <sql id="tb">page</sql>
+<!--  <sql id="tb">page</sql>-->
 
   <select id="getPageById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from <include refid="tb"/>
+    from page
     where page_id = #{pageId,jdbcType=INTEGER}
   </select>
 
   <delete id="deleteById" parameterType="java.lang.Integer" >
-    delete from <include refid="tb"/>
+    delete from page
     where page_id = #{pageId,jdbcType=INTEGER}
   </delete>
 
   <insert id="insert" parameterType="com.liuyanzhao.ssm.blog.entity.Page" useGeneratedKeys="true" keyProperty="pageId">
-    insert into <include refid="tb"/>
+    insert into page
     (page_id, page_key, page_title,
       page_content, page_create_time, page_update_time, 
       page_view_count, page_comment_count, page_status
@@ -45,7 +45,7 @@
 
 
   <update id="update" parameterType="com.liuyanzhao.ssm.blog.entity.Page" >
-    update <include refid="tb"/>
+    update page
     <set >
       <if test="pageKey != null" > page_key = #{pageKey,jdbcType=VARCHAR},</if>
       <if test="pageTitle != null" >page_title = #{pageTitle,jdbcType=VARCHAR},</if>
@@ -63,7 +63,7 @@
   <select id="listPage" resultType="com.liuyanzhao.ssm.blog.entity.Page">
     SELECT
     <include refid="Base_Column_List"/>
-    FROM <include refid="tb"/>
+    FROM page
     <where>
       <if test="status!=null">
         page_status=#{status}
@@ -76,7 +76,7 @@
     SELECT
     <include refid="Base_Column_List"/>
     FROM
-    <include refid="tb"/>
+    page
     <where>
       <if test="status!=null">
         page_status=#{status} AND

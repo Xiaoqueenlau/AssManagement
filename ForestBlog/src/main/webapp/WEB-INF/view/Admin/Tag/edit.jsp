@@ -75,7 +75,7 @@
                     <th>名称</th>
                     <th>文章数</th>
                     <th>操作</th>
-                    <th>id</th>
+                    <th>ID</th>
                 </tr>
                 </thead>
                 <tbody>

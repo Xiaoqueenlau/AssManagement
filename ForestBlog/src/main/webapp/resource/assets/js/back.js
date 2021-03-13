@@ -86,6 +86,21 @@ function deleteArticle(id) {
     }
 }
 
+function deleteActivity(id) {
+    if(confirmDelete()==true){
+        $.ajax({
+            async: false,
+            type: "POST",
+            url:'/admin/activity/delete'+id,
+            contentType : "application/x-www-form-urlencoded; charset=utf-8",
+            dataType: "text",
+            complete:function () {
+                window.location.reload();
+            }
+        })
+    }
+}
+
 //查询文章
 function queryArticle() {
     //提交form
@@ -214,3 +229,4 @@ layui.use(['form', 'layedit', 'laydate'], function () {
         return true;
     });
 });
+

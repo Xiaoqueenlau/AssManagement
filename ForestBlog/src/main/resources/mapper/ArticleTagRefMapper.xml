@@ -6,24 +6,24 @@
     <result column="tag_id" jdbcType="INTEGER" property="tagId" />
   </resultMap>
 
-  <sql id="tb">article_tag_ref</sql>
+<!--  <sql id="tb">article_tag_ref</sql>-->
 
   <insert id="insert" parameterType="java.lang.Integer" >
-    insert into <include refid="tb"/>
+    insert into article_tag_ref
     (article_id, tag_id)
     values (#{articleId}, #{tagId})
   </insert>
 
   <delete id="deleteByTagId" parameterType="java.lang.Integer" >
-    delete from <include refid="tb"/> where tag_id = #{value}
+    delete from article_tag_ref where tag_id = #{value}
   </delete>
 
   <delete id="deleteByArticleId" parameterType="java.lang.Integer" >
-    delete from <include refid="tb"/> where article_id = #{value}
+    delete from article_tag_ref where article_id = #{value}
   </delete>
 
   <select id="countArticleByTagId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
-    select count(*) from <include refid="tb"/>
+    select count(*) from article_tag_ref
     where tag_id = #{value}
   </select>
 

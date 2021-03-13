@@ -4,11 +4,7 @@ import com.liuyanzhao.ssm.blog.entity.Link;
 
 import java.util.List;
 
-/**
- *
- * @author 言曌
- * @date 2017/9/4
- */
+
 public interface LinkService {
 
     /**

@@ -17,9 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 
-/**
- * @author liuyanzhao
- */
+
 @Controller
 @RequestMapping("/admin/user")
 public class BackUserController {

@@ -48,7 +48,7 @@
 
 
 <rapid:override name="left">
-    <%--博客主体-左侧文章正文 start--%>
+    <%--主体-左侧文章正文 start--%>
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main">
             <article class="post" id="articleDetail" data-id="${article.articleId}">
@@ -62,16 +62,16 @@
                             ${article.articleContent}
                     </div>
                     <div class="s-weixin">
-                        <ul class="weimg1">
-                            <li><strong>微信</strong></li>
-                            <li>赶快加我聊天吧</li>
-                            <li><img src="/img/weixin.jpg"></li>
-                        </ul>
-                        <ul class="weimg2">
-                            <li><strong>博客交流群</strong></li>
-                            <li>海纳百川，大家来水</li>
-                            <li><img src="/img/qqGroup.jpg" alt="weinxin"></li>
-                        </ul>
+
+<%--                            <li><strong>微信</strong></li>--%>
+<%--                            <li>赶快加我聊天吧</li>--%>
+                            <img src="/img/guanzhuwo.JPG">
+
+<%--                        <ul class="weimg2">--%>
+<%--                            <li><strong>博客交流群</strong></li>--%>
+<%--                            <li>海纳百川，大家来水</li>--%>
+<%--                            <li><img src="/img/qqGroup.jpg" alt="weinxin"></li>--%>
+<%--                        </ul>--%>
                         <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
@@ -88,7 +88,7 @@
                             <div class="shang-p">
                                 <div class="shang-empty"><span></span></div>
                                 <span class="shang-s">
-                                    <a onclick="PaymentUtils.show();" style="cursor:pointer">赏</a>
+<%--                                    <a onclick="PaymentUtils.show();" style="cursor:pointer">赏</a>--%>
                                 </span>
                             </div>
                             <div class="share-sd">
@@ -122,7 +122,7 @@
                         <ul class="single-meta">
                             <c:if test="${sessionScope.user!=null}">
                                 <li class="edit-link">
-                                    <a target="_blank" class="post-edit-link"
+                                    <a class="post-edit-link"
                                        href="/admin/article/edit/${article.articleId}">编辑</a>
                                 </li>
                             </c:if>
@@ -337,11 +337,11 @@
                                     <input type="email" name="commentAuthorEmail" id="author_email" class="" value=""
                                            tabindex="3" required>
                                 </p>
-                                <p class="comment-form-url">
-                                    <label for="author_url">网址</label>
-                                    <input type="url" name="commentAuthorUrl" id="author_url" class="" value=""
-                                           tabindex="4">
-                                </p>
+<%--                                <p class="comment-form-url">--%>
+<%--                                    <label for="author_url">网址</label>--%>
+<%--                                    <input type="url" name="commentAuthorUrl" id="author_url" class="" value=""--%>
+<%--                                           tabindex="4">--%>
+<%--                                </p>--%>
                             </c:if>
                         </div>
                         <div class="clear"></div>
@@ -371,7 +371,7 @@
                                         <c:if test="${c.commentRole == 1}">
                                             <i class="fa fa-black-tie" style="color: #c40000;"></i>
                                             <span class=""
-                                                  style="margin-top: 2px!important;color: #c40000;font-size: 13px;;"><b>博主</b></span>
+                                                  style="margin-top: 2px!important;color: #c40000;font-size: 13px;;"><b>君君</b></span>
                                         </c:if>
                                         <span class="comment-meta commentmetadata">
                                             <span class="ua-info" style="display: inline;">
@@ -420,7 +420,7 @@
                                                         <c:if test="${c2.commentRole==1}">
                                                             <i class="fa fa-black-tie" style="color: #c40000;"></i>
                                                             <span class=""
-                                                                  style="margin-top: 2px!important;color: #c40000;font-size: 13px;;"><b>博主</b></span>
+                                                                  style="margin-top: 2px!important;color: #c40000;font-size: 13px;;"><b>君君</b></span>
                                                         </c:if>
                                                         <span class="comment-meta">
                                                     <span class="ua-info" style="display: inline;">

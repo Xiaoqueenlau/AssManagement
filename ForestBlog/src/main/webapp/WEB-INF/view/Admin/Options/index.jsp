@@ -122,12 +122,6 @@
                         <input type="text" name="optionAboutsiteWeibo"  value="${option.optionAboutsiteWeibo}"    autocomplete="off" class="layui-input">
                     </div>
                 </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">Github</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="optionAboutsiteGithub"  value="${option.optionAboutsiteGithub}"   autocomplete="off" class="layui-input">
-                    </div>
-                </div>
             </div>
         </div>
 

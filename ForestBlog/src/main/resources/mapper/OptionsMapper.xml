@@ -25,25 +25,25 @@
     option_status
   </sql>
 
-    <sql id="tb">options</sql>
+<!--    <sql id="tb">options</sql>-->
 
     <select id="getOptionsById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
         from
-        <include refid="tb"/>
+        options
         where option_id = #{optionId,jdbcType=INTEGER}
     </select>
 
     <delete id="deleteById" parameterType="java.lang.Integer">
         delete from
-        <include refid="tb"/>
+            options
         where option_id = #{optionId,jdbcType=INTEGER}
     </delete>
 
     <insert id="insert" parameterType="com.liuyanzhao.ssm.blog.entity.Options">
         insert into
-        <include refid="tb"/>
+            options
         (option_id, option_site_title, option_site_descrption,
         option_meta_descrption, option_meta_keyword,
         option_aboutsite_avatar, option_aboutsite_title,
@@ -63,7 +63,7 @@
 
     <update id="update" parameterType="com.liuyanzhao.ssm.blog.entity.Options">
         update
-        <include refid="tb"/>
+        options
         <set>
             <if test="optionSiteTitle != null">option_site_title = #{optionSiteTitle,jdbcType=VARCHAR},</if>
             <if test="optionSiteDescrption != null">option_site_descrption = #{optionSiteDescrption,jdbcType=VARCHAR},
@@ -97,7 +97,7 @@
 
     <select id="getOptions" resultType="com.liuyanzhao.ssm.blog.entity.Options">
         SELECT * FROM
-        <include refid="tb"/>
+            options
         limit 1
     </select>
 

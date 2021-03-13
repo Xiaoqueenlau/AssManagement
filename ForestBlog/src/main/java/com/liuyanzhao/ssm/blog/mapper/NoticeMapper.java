@@ -6,9 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-/**
- * @author liuyanzhao
- */
+
 @Mapper
 public interface NoticeMapper {
 

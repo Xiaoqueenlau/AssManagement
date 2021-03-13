@@ -48,9 +48,9 @@
                     <h4>可以尝试：</h4>
                     <ol>
                         <li><a href="/">返回首页</a></li>
-                        <li><a href="https://liuyanzhao.com/message.html">留言反馈</a></li>
+                        <li><a href="/message">留言反馈</a></li>
                         <li>
-                            <a target="_blank" rel="external nofollow" href="http://wpa.qq.com/msgrd?v=3&amp;uin=847064370&amp;site=qq&amp;menu=yes"><i class="fa fa-qq"></i>联系站长</a>
+                           </i>联系社联</a>
                         </li>
                     </ol>
                 </div>

@@ -15,13 +15,15 @@
         <result column="article_create_time" property="articleCreateTime" jdbcType="TIMESTAMP"/>
         <result column="article_update_time" property="articleUpdateTime" jdbcType="TIMESTAMP"/>
         <result column="article_status" property="articleStatus" jdbcType="INTEGER"/>
+        <result column="article_thumbnail" property="articleThumbnail" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <sql id="tb">article</sql>
+
 
     <sql id="Base_Column_List">
-    article_id, article_user_id, article_title, article_content,article_summary, article_view_count, article_comment_count, article_like_count, article_create_time,
-    article_update_time, article_is_comment, article_status, article_order
+    article_id, article_user_id, article_title, article_content,article_summary,
+    article_view_count, article_comment_count, article_like_count, article_create_time,
+    article_update_time, article_is_comment, article_status, article_order, article_thumbnail
     </sql>
 
 
@@ -29,7 +31,7 @@
         SELECT
         article_id, article_user_id, article_title, article_create_time
         FROM
-        <include refid="tb"/>
+        article
         WHERE article_status = 1
         ORDER BY article_id DESC
     </select>
@@ -68,13 +70,13 @@
 
     <delete id="deleteById" parameterType="java.lang.Integer">
         delete from
-        <include refid="tb"/>
+            article
         where article_id = #{articleId,jdbcType=INTEGER}
     </delete>
 
     <delete id="deleteBatch" parameterType="list">
         DELETE FROM
-        <include refid="tb"/>
+        article
         <if test="ids != null">
             WHERE article_id IN
             <foreach collection="ids" open="(" close=")" separator="," item="id">
@@ -86,25 +88,26 @@
     <insert id="insert" parameterType="com.liuyanzhao.ssm.blog.entity.Article" useGeneratedKeys="true"
             keyProperty="articleId">
         insert into
-        <include refid="tb"/>
+            article
         (article_user_id, article_title,
         article_view_count, article_comment_count,
         article_like_count, article_create_time, article_update_time,
         article_is_comment, article_status, article_order,
-        article_content, article_summary)
+        article_content, article_summary, article_thumbnail)
         values (#{articleUserId,jdbcType=INTEGER}, #{articleTitle,jdbcType=VARCHAR},
         #{articleViewCount,jdbcType=INTEGER},
         #{articleCommentCount,jdbcType=INTEGER},
         #{articleLikeCount,jdbcType=INTEGER}, #{articleCreateTime,jdbcType=TIMESTAMP},
         #{articleUpdateTime,jdbcType=TIMESTAMP},
         #{articleIsComment,jdbcType=INTEGER}, #{articleStatus,jdbcType=INTEGER}, #{articleOrder,jdbcType=INTEGER},
-        #{articleContent,jdbcType=LONGVARCHAR}, #{articleSummary,jdbcType=VARCHAR})
+        #{articleContent,jdbcType=LONGVARCHAR}, #{articleSummary,jdbcType=VARCHAR},
+        #{articleThumbnail,jdbcType=VARCHAR})
     </insert>
 
 
     <update id="update" parameterType="com.liuyanzhao.ssm.blog.entity.Article">
         update
-        <include refid="tb"/>
+        article
         <set>
             <if test="articleUserId != null">article_user_id = #{articleUserId,jdbcType=INTEGER},</if>
             <if test="articleTitle != null">article_title = #{articleTitle,jdbcType=VARCHAR},</if>
@@ -118,6 +121,7 @@
             <if test="articleOrder != null">article_order = #{articleOrder,jdbcType=INTEGER},</if>
             <if test="articleContent != null">article_content = #{articleContent,jdbcType=LONGVARCHAR},</if>
             <if test="articleSummary != null">article_summary = #{articleSummary,jdbcType=VARCHAR},</if>
+            <if test="articleThumbnail != null">article_thumbnail = #{articleThumbnail,jdbcType=VARCHAR}</if>
         </set>
         where article_id = #{articleId,jdbcType=INTEGER}
     </update>
@@ -125,7 +129,7 @@
     <!--获取文章总数-->
     <select id="countArticle" resultType="Integer">
         SELECT COUNT(*) FROM
-        <include refid="tb"/>
+        article
         WHERE article_status = 1
     </select>
 
@@ -133,7 +137,7 @@
     <select id="countArticleComment" resultType="Integer">
         SELECT SUM(article_comment_count)
         FROM
-        <include refid="tb"/>
+        article
         WHERE article_status = 1
     </select>
 
@@ -141,7 +145,7 @@
     <!--统计文章总访问量-->
     <select id="countArticleView" resultType="Integer">
         SELECT SUM(article_view_count) FROM
-        <include refid="tb"/>
+        article
         WHERE article_status = 1
     </select>
 
@@ -150,7 +154,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        article
         WHERE article_status = 1
         ORDER BY article_status ASC, article_order DESC, article_id DESC
     </select>
@@ -159,7 +163,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        article
         <where>
             <if test="status != null">
                 article_status = #{status} AND
@@ -173,7 +177,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        article
         <where>
             <if test="status!=null">
                 article_status=#{status}
@@ -188,7 +192,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        article
         WHERE article_status = 1
         ORDER BY article_view_count DESC,article_order DESC, article_id DESC
         limit #{limit}
@@ -201,7 +205,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        article
         <where>
             article_id > #{id} AND article_status = 1
         </where>
@@ -213,7 +217,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        article
         <where>
             article_id &lt; #{id} AND article_status = 1
         </where>
@@ -226,7 +230,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        article
         WHERE article_status = 1
         ORDER BY
         RAND()
@@ -238,7 +242,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        article
         WHERE article_status = 1
         ORDER BY
         article_comment_count DESC,article_order DESC, article_id DESC
@@ -247,7 +251,7 @@
 
     <update id="updateCommentCount" parameterType="Integer">
         UPDATE
-        <include refid="tb"/>
+        article
         SET article_comment_count =
         (
         SELECT count(*) FROM `comment`
@@ -261,7 +265,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM
-        <include refid="tb"/>
+        article
         WHERE
         article_status = 1 AND article_update_time=
         (
@@ -272,7 +276,7 @@
     <select id="countArticleByUser" parameterType="Integer" resultType="Integer">
         SELECT COUNT(*)
         FROM
-        <include refid="tb"/>
+        article
         WHERE article_user_id=#{id} AND article_status = 1
     </select>
 
@@ -320,7 +324,7 @@
         article_create_time,
         article_update_time, article_is_comment, article_status, article_order
         FROM
-        <include refid="tb"/>
+        article
         ORDER BY article_id DESC
         LIMIT #{value}
     </select>

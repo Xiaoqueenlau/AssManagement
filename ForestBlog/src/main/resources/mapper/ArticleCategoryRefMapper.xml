@@ -6,43 +6,42 @@
         <result column="category_id" jdbcType="INTEGER" property="categoryId"/>
     </resultMap>
 
-    <sql id="tb">article_category_ref</sql>
 
     <insert id="insert" parameterType="java.lang.Integer">
         insert into
-        <include refid="tb"/>
+            article_category_ref
         (article_id, category_id)
         values (#{articleId}, #{categoryId})
     </insert>
 
     <delete id="deleteByCategoryId" parameterType="java.lang.Integer">
         delete from
-        <include refid="tb"/>
+            article_category_ref
         where category_id = #{value}
     </delete>
 
     <delete id="deleteByArticleId" parameterType="java.lang.Integer">
         delete from
-        <include refid="tb"/>
+            article_category_ref
         where article_id = #{value}
     </delete>
 
     <select id="countArticleByCategoryId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
         select count(*) from
-        <include refid="tb"/>
+            article_category_ref
         where category_id = #{value}
     </select>
 
     <select id="selectCategoryIdByArticleId" resultType="java.lang.Integer">
         SELECT category_id FROM
-        <include refid="tb"/>
+            article_category_ref
         WHERE article_id = #{value}
     </select>
 
 
     <select id="selectArticleIdByCategoryId" resultType="java.lang.Integer">
         SELECT article_id FROM
-        <include refid="tb"/>
+            article_category_ref
         WHERE category_id = #{value}
     </select>
 

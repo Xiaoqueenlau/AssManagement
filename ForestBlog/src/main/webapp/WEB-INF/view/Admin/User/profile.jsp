@@ -115,13 +115,13 @@
                        class="layui-input" disabled>
             </div>
         </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">最后登录IP </label>
-            <div class="layui-input-inline">
-                <input type="text"  value="${user.userLastLoginIp}" placeholder="" autocomplete="off"
-                       class="layui-input" disabled>
-            </div>
-        </div>
+<%--        <div class="layui-form-item">--%>
+<%--            <label class="layui-form-label">最后登录IP </label>--%>
+<%--            <div class="layui-input-inline">--%>
+<%--                <input type="text"  value="${user.userLastLoginIp}" placeholder="" autocomplete="off"--%>
+<%--                       class="layui-input" disabled>--%>
+<%--            </div>--%>
+<%--        </div>--%>
         <div class="layui-form-item">
             <label class="layui-form-label">状态 </label>
             <div class="layui-input-inline">

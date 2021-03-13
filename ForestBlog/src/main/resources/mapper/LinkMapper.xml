@@ -20,7 +20,7 @@
     link_owner_contact, link_update_time, link_create_time, link_order, link_status
   </sql>
   
-  <sql id="tb">link</sql>
+<!--  <sql id="tb">link</sql>-->
   
   <select id="getLinkById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -63,7 +63,7 @@
   </update>
 
   <select id="countLink" resultType="Integer">
-    SELECT COUNT(*) FROM <include refid="tb"/>
+    SELECT COUNT(*) FROM link
     <where>
       <if test="status!=null">
         link_status=#{status}
@@ -75,7 +75,7 @@
   <select id="listLink" resultType="com.liuyanzhao.ssm.blog.entity.Link">
     SELECT
     <include refid="Base_Column_List"/>
-    FROM  <include refid="tb"/>
+    FROM  link
     <where>
       <if test="status!=null">
         link_status=#{status}

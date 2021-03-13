@@ -13,20 +13,18 @@
     menu_id, menu_name, menu_url, menu_level, menu_icon, menu_order
   </sql>
 
-  <sql id="tb">menu</sql>
-
   <select id="getMenuById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from <include refid="tb"/>
+    from menu
     where menu_id = #{menuId,jdbcType=INTEGER}
   </select>
   <delete id="deleteById" parameterType="java.lang.Integer" >
-    delete from <include refid="tb"/>
+    delete from menu
     where menu_id = #{menuId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.liuyanzhao.ssm.blog.entity.Menu" useGeneratedKeys="true" keyProperty="menuId">
-    insert into <include refid="tb"/>
+    insert into menu
     (menu_id, menu_name, menu_url,
       menu_level, menu_icon, menu_order)
     values (#{menuId,jdbcType=INTEGER}, #{menuName,jdbcType=VARCHAR}, #{menuUrl,jdbcType=VARCHAR}, 
@@ -34,7 +32,7 @@
   </insert>
 
   <update id="update" parameterType="com.liuyanzhao.ssm.blog.entity.Menu" >
-    update <include refid="tb"/>
+    update menu
     <set >
       <if test="menuName != null" > menu_name = #{menuName,jdbcType=VARCHAR},</if>
       <if test="menuUrl != null" >menu_url = #{menuUrl,jdbcType=VARCHAR},</if>
@@ -51,7 +49,7 @@
   <select id="listMenu"  resultType="com.liuyanzhao.ssm.blog.entity.Menu">
     SELECT
     <include refid="Base_Column_List"/>
-    FROM <include refid="tb"/>
+    FROM menu
     ORDER BY menu_order DESC, menu_id ASC
   </select>
 </mapper>

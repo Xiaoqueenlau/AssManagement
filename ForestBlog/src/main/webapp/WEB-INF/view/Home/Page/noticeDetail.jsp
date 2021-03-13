@@ -21,7 +21,7 @@
             <i class="fa fa-home"></i>首页
         </a>
         <i class="fa fa-angle-right"></i>
-        博客公告
+        社联公告
         <i class="fa fa-angle-right"></i>
         正文
     </nav>

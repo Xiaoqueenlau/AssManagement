@@ -82,6 +82,20 @@
                 </c:forEach>
             </div>
         </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">选择缩略图</label>
+            <div class="layui-upload-drag" id="test10">
+                <i class="layui-icon"></i>
+                <p>点击上传，或将文件拖拽到此处</p>
+                <div id="uploadDemoView">
+                    <hr>
+                    <img src="${article.articleThumbnail}" alt="上传成功后渲染" style="max-width: 50%" width="200">
+                    <input type="hidden" id="articleThumbnail" name="articleThumbnail" value="${article.articleThumbnail}">
+                </div>
+            </div>
+        </div>
+
         <div class="layui-form-item">
             <label class="layui-form-label">order</label>
             <div class="layui-input-inline">
@@ -193,7 +207,22 @@
 
         });
         //end
+        layui.use('upload', function () {
+            var $ = layui.jquery
+                , upload = layui.upload;
 
+            //拖拽上传
+            upload.render({
+                elem: '#test10'
+                , url: '/admin/upload/img' //改成您自己的上传接口
+                , done: function (res) {
+                    layer.msg('上传成功');
+                    layui.$('#uploadDemoView').find('img').attr('src', res.data.src);
+                    $("#articleThumbnail").attr("value", res.data.src);
+                    console.log(res)
+                }
+            });
+        });
 
     </script>
 

@@ -38,8 +38,8 @@
                     </li>
                     <li class="tqq">
                         <a target="blank" rel="external nofollow"
-                           href="http://wpa.qq.com/msgrd?V=3&amp;uin=${options.optionAboutsiteQq}&amp;Site=QQ&amp;Menu=yes"
-                           title="QQ在线">
+                           href="https://user.qzone.qq.com/${options.optionAboutsiteQq}/infocenter"
+                           title="QQ空间">
                             <i class="fa fa-qq"></i>
                         </a>
                     </li>
@@ -48,12 +48,6 @@
                            href="http://weibo.com/${options.optionAboutsiteWeibo}"
                            target="_blank" rel="external nofollow">
                             <i class="fa fa-weibo"></i>
-                        </a>
-                    </li>
-                    <li class="feed">
-                        <a title="" href="https://github.com/${options.optionAboutsiteGithub}" target="_blank"
-                           rel="external nofollow">
-                            <i class="fa fa-github"></i>
                         </a>
                     </li>
                 </ul>

@@ -15,9 +15,7 @@ import java.util.List;
 import java.util.Objects;
 
 
-/**
- * @author liuyanzhao
- */
+
 @Controller
 @RequestMapping("/admin/page")
 public class BackPageController {

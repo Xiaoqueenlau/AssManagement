@@ -287,7 +287,7 @@
             <div id="dashboard_quick_press" class="postbox ">
                 <div class="inside">
                     <form name="post" method="post" id="insertDraftForm"
-                          class="initial-form hide-if-no-js" action="/admin/article/insertDraftSubmit">
+                          class="initial-form hide-if-no-js" action="/admin/article/insertSubmit">
 
                         <div class="layui-form-item">
                             <div class="layui-input-block">
@@ -302,14 +302,14 @@
                         <input type="hidden" name="articleStatus" value="0">
                         <div class="layui-form-item">
                             <div class="layui-input-block">
-                                <button class="layui-btn layui-btn-small" lay-submit lay-filter="formDemo" onclick="insertDraft()">保存草稿</button>
+                                <button class="layui-btn layui-btn-small" lay-submit lay-filter="formDemo" >保存草稿</button>
                                 <button type="reset" class="layui-btn layui-btn-small layui-btn-primary">重置</button>
                             </div>
                         </div>
 
                     </form>
                     <div class="drafts"><p class="view-all"><a
-                            href="/admin/article"
+                            href="/admin/article?status=0"
                             aria-label="查看所有草稿">查看所有</a></p>
                         <h2 class="hide-if-no-js">草稿</h2>
                         <ul>

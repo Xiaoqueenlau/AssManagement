@@ -11,6 +11,7 @@ import com.liuyanzhao.ssm.blog.service.TagService;
 import com.liuyanzhao.ssm.blog.entity.Category;
 import com.liuyanzhao.ssm.blog.entity.Tag;
 import com.liuyanzhao.ssm.blog.entity.User;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,9 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-/**
- * @author liuyanzhao
- */
+
 @Controller
 @RequestMapping("/admin/article")
 public class BackArticleController {
@@ -121,7 +120,7 @@ public class BackArticleController {
             }
         }
         article.setTagList(tagList);
-
+        article.setArticleThumbnail(articleParam.getArticleThumbnail());
         articleService.insertArticle(article);
         return "redirect:/admin/article";
     }
@@ -157,6 +156,7 @@ public class BackArticleController {
 
         List<Tag> tagList = tagService.listTag();
         modelAndView.addObject("tagList", tagList);
+
 
 
         modelAndView.setViewName("Admin/Article/edit");
@@ -204,6 +204,7 @@ public class BackArticleController {
             }
         }
         article.setTagList(tagList);
+        article.setArticleThumbnail(articleParam.getArticleThumbnail());
         articleService.updateArticleDetail(article);
         return "redirect:/admin/article";
     }

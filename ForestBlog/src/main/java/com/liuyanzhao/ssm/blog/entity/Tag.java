@@ -4,9 +4,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-/**
- * @author liuyanzhao
- */
+
 @Data
 public class Tag implements Serializable{
     private static final long serialVersionUID = 605449151900057035L;

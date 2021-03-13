@@ -15,22 +15,22 @@
     notice_status, notice_order
   </sql>
 
-  <sql id="tb">notice</sql>
+<!--  <sql id="tb">notice</sql>-->
 
   <select id="getNoticeById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from <include refid="tb"/>
+    from notice
     where notice_id = #{noticeId,jdbcType=INTEGER}
   </select>
 
   <delete id="deleteById" parameterType="java.lang.Integer" >
-    delete from <include refid="tb"/>
+    delete from notice
     where notice_id = #{noticeId,jdbcType=INTEGER}
   </delete>
 
   <insert id="insert" parameterType="com.liuyanzhao.ssm.blog.entity.Notice" useGeneratedKeys="true" keyProperty="noticeId">
-    insert into <include refid="tb"/>
+    insert into notice
     (notice_id, notice_title, notice_content,
       notice_create_time, notice_update_time, 
       notice_status, notice_order)
@@ -40,7 +40,7 @@
   </insert>
 
   <update id="update" parameterType="com.liuyanzhao.ssm.blog.entity.Notice" >
-    update <include refid="tb"/>
+    update notice
     <set >
       <if test="noticeTitle != null" > notice_title = #{noticeTitle,jdbcType=VARCHAR},</if>
       <if test="noticeContent != null" >notice_content = #{noticeContent,jdbcType=VARCHAR},</if>
@@ -53,7 +53,7 @@
   </update>
 
   <update id="updateByPrimaryKey" parameterType="com.liuyanzhao.ssm.blog.entity.Notice" >
-    update <include refid="tb"/>
+    update notice
     set notice_title = #{noticeTitle,jdbcType=VARCHAR},
       notice_content = #{noticeContent,jdbcType=VARCHAR},
       notice_create_time = #{noticeCreateTime,jdbcType=TIMESTAMP},
@@ -65,7 +65,7 @@
 
 
   <select id="countNotice" resultType="Integer">
-    SELECT COUNT(*) FROM <include refid="tb"/>
+    SELECT COUNT(*) FROM notice
     <where>
       <if test="status!=null">
         menu_status=#{status}
@@ -77,7 +77,7 @@
   <select id="listNotice" resultType="com.liuyanzhao.ssm.blog.entity.Notice">
     SELECT
     <include refid="Base_Column_List"/>
-    FROM  <include refid="tb"/>
+    FROM  notice
     <where>
       <if test="status!=null">
         notice_status=#{status}

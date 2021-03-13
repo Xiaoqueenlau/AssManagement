@@ -57,16 +57,37 @@
                 <c:forEach items="${pageInfo.list}" var="a">
                     <tr>
                         <td>
-                            <a href="/article/${a.articleId}"
-                               target="_blank">
-                                    ${a.articleTitle}
-
-                            </a></td>
+<%--                            <a href="/article/${a.articleId}">--%>
+<%--                                    ${a.articleTitle}--%>
+<%--                            </a>--%>
+                            <c:choose>
+                                <c:when test="${a.articleStatus == 1}">
+                                    <a href="/article/${a.articleId}">
+                                            ${a.articleTitle}
+                                    </a>
+                                </c:when>
+                                <c:otherwise>
+                                    <span style="color:#FF5722;">${a.articleTitle}</span>
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
                         <td>
                             <c:forEach items="${a.categoryList}" var="c">
-                                <a href="/category/${c.categoryId}"
-                                   target="_blank">${c.categoryName}</a>
-                                &nbsp;
+<%--                                <a href="/category/${c.categoryId}">${c.categoryName}</a>--%>
+                                <c:choose>
+                                    <c:when test="${a.articleStatus == 1}">
+                                        <a href="/category/${c.categoryId}">${c.categoryName}</a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:if test="${c.categoryName=='未分类'}">
+                                            <span style="color:#FF5722;">${c.categoryName}</span>
+                                        </c:if>
+                                        <c:if test="${c.categoryName!='未分类'}">
+                                            <span style="color:#FF5722;"><a href="/category/${c.categoryId}">${c.categoryName}</a></span>
+                                        </c:if>
+                                    </c:otherwise>
+                                </c:choose>&nbsp;
+
                             </c:forEach>
                         </td>
                         <td>

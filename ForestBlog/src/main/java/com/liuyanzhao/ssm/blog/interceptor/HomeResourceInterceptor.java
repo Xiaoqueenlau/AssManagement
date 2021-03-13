@@ -20,9 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author liuyanzhao
- */
+
 @Component
 public class HomeResourceInterceptor implements HandlerInterceptor {
     @Autowired
